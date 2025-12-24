@@ -5,9 +5,9 @@ Probabilistic football match outcome model using Poisson regression
 
 This project implements a probabilistic football match outcome model that estimates:
 
--expected goals for each team
+- expected goals for each team
 
--the probability of a home win, draw, or away win
+- the probability of a home win, draw, or away win
 
 The focus of the project is not maximising accuracy, but building a clean, defensible prediction pipeline using only pre-match information, with careful handling of time dependence and uncertainty.
 
