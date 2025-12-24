@@ -1,5 +1,6 @@
 # football-match-outcome-probability
 Probabilistic football match outcome model using Poisson regression
+
 Overview
 
 This project implements a probabilistic football match outcome model that estimates:
