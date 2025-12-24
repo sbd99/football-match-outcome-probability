@@ -3,65 +3,68 @@ Probabilistic football match outcome model using Poisson regression
 
 # Overview
 
-This project implements a probabilistic football match outcome model that estimates:
+This project uses a probabilistic football match outcome model that estimates:
 
 - expected goals for each team
 
-- the probability of a home win, draw, or away win
+- the probability of a home win, draw or away win
 
-The focus of the project is not maximising accuracy, but building a clean, defensible prediction pipeline using only pre-match information, with careful handling of time dependence and uncertainty.
+The main goal of the project is to build a clean prediction pipeline using only pre-match information.
 
-The model is designed as a baseline that could be extended with richer football data.
+The model is just a base layer that could be improved with more football data.
 
-Data
 
-Competition: Serie A
+# Data
 
-Seasons used: 2020/21 – 2023/24 (four full seasons)
+- Competition: Serie A
 
-Data type: historical match results (final scores only)
+- Seasons used: 2020/21 – 2023/24 (four full seasons)
 
-The 2024/25 season was excluded because the available dataset did not contain a complete set of fixtures. Incomplete seasons were deliberately removed to avoid biased evaluation.
+- Data type: historical match results (final scores only)
+
+The 2024/25 season was excluded because the available dataset did not have the complete set of fixtures. Incomplete seasons were deliberately removed to avoid biased evaluation.
 
 Each match includes:
 
-date
+- date
 
-home team
+- home team
 
-away team
+- away team
 
-home goals
+- home goals
 
-away goals
+- away goals
 
-No in-match, post-match, or market data is used.
+No in-match, post-match or market data is used.
 
-Feature Engineering
 
-For each match, rolling pre-match team features were constructed:
+# Feature Engineering
 
-average goals scored in the last 5 matches
+For each match, team features were calculated using recent match history, based only on games played before the fixture.
 
-average goals conceded in the last 5 matches
+- average goals scored in the last 5 matches
 
-computed separately for home and away teams
+- average goals conceded in the last 5 matches
 
-a home advantage indicator
+- computed separately for home and away teams
+
+- a home advantage indicator
 
 Key methodological choices:
 
-Rolling features use shift(1) so the current match is never included
+- Rolling features use shift(1) so the current match is never included
 
-Matches without sufficient prior history are dropped
+- Matches without sufficient prior history are dropped
 
-Promoted teams are handled naturally by this rule
+- Promoted teams are handled naturally by this rule
 
-No missing values are imputed
+- No missing values are imputed
 
 This approach avoids data leakage and ensures all features reflect information that would have been available before kick-off.
 
-Modelling Approach
+
+# Modelling Approach
 
 Two Poisson Generalised Linear Models (GLMs) are fitted:
 
