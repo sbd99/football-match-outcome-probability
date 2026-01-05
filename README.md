@@ -68,65 +68,64 @@ This approach avoids data leakage and ensures all features reflect information t
 
 Two Poisson Generalised Linear Models (GLMs) are fitted:
 
-Home goals model
-
-Away goals model
+1. Home goals model
+2. Away goals model
 
 Poisson regression is a standard baseline in football analytics because:
 
-goals are count data
+- goals are count data
 
-outputs are interpretable
+- outputs are interpretable
 
-models produce full probability distributions rather than point predictions
+- models produce full probability distributions rather than point predictions
 
 The models estimate expected goals (λ) for each team in a match.
 
-From Expected Goals to Match Probabilities
+# From Expected Goals to Match Probabilities
 
 Expected goals are converted into outcome probabilities by:
 
-assuming goals follow independent Poisson distributions
+- assuming goals follow independent Poisson distributions
 
-enumerating possible scorelines
+- enumerating possible scorelines
 
-aggregating probabilities into:
+- aggregating probabilities into:
 
-home win
+  - home win
 
-draw
+  - draw
 
-away win
+  - away win
 
 All predicted probabilities are verified to sum to 1.
 
-Evaluation
+# Evaluation
 
 A time-based split is used:
 
-Training: 2020/21 – 2022/23
+- Training: 2020/21 – 2022/23
 
-Test: 2023/24 season
+- Test: 2023/24 season
 
 This avoids look-ahead bias and reflects real-world deployment.
 
-Metric
+# Metric
 
 The primary evaluation metric is log loss, which measures the quality of probabilistic predictions.
 
-Result
+# Result
 
 Log loss ≈ 1.10
 
 For a three-outcome football prediction task:
 
-random guessing ≈ 1.10–1.12
+- random guessing ≈ 1.10–1.12
 
-simple, well-implemented Poisson baselines typically fall in the 1.08–1.15 range
+- simple, well-implemented Poisson baselines typically fall in the 1.08–1.15 range
 
 This result indicates that the model produces reasonable, well-calibrated probabilities, given the deliberately limited feature set.
 
-Project Structure
+# Project Structure
 football-match-outcome-probability/
 │
 ├── data/
@@ -142,19 +141,18 @@ football-match-outcome-probability/
 └── README.md
 
 
-Each notebook performs a single, well-defined step in the pipeline.
 
-Limitations
+# Limitations
 
 This project is intentionally scoped as a baseline model. Limitations include:
 
-No team strength priors (e.g. Elo or long-term averages)
+- No team strength priors (e.g. Elo or long-term averages)
 
-No shot-based metrics such as expected goals (xG)
+- No shot-based metrics such as expected goals (xG)
 
-No player availability or scheduling effects
+- No player availability or scheduling effects
 
-No market odds
+- No market odds
 
 As a result, early-season and cold-start predictions are conservative by design.
 
