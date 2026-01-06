@@ -156,26 +156,26 @@ This project is intentionally scoped as a baseline model. Limitations include:
 
 As a result, early-season and cold-start predictions are conservative by design.
 
-Future Work
+# Future Work
 
 Possible extensions include:
 
-incorporating team strength priors to improve early-season predictions
+- incorporating team strength priors to improve early-season predictions
 
-replacing raw goals with xG and xGA
+- replacing raw goals with xG and xGA
 
-modelling team effects using hierarchical or Bayesian approaches
+- modelling team effects using hierarchical or Bayesian approaches
 
-comparing model probabilities against market odds
+- comparing model probabilities against market odds
 
-Purpose
+# Purpose
 
 The goal of this project is to demonstrate:
 
-correct handling of time-dependent football data
+- correct handling of time-dependent football data
 
-probabilistic modelling using appropriate statistical tools
+- probabilistic modelling using appropriate statistical tools
 
-honest evaluation and clear communication of uncertainty
+- honest evaluation and clear communication of uncertainty
 
 It is intended as a clean, extensible foundation, rather than a finished or optimised betting system.
