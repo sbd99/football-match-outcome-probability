@@ -1,7 +1,7 @@
 # football-match-outcome-probability
 Probabilistic football match outcome model using Poisson regression
 
-📊 Test log loss: 1.10 | Built with: Python, pandas, statsmodels, scikit-learn, scipy
+Test log loss: 1.10 | Built with: Python, pandas, statsmodels, scikit-learn, scipy
 
 ## Overview
 This project uses a probabilistic football match outcome model that estimates:
@@ -136,3 +136,4 @@ The goal of this project is to demonstrate:
 - honest evaluation and clear communication of uncertainty
 
 It is intended as a clean, extensible foundation, rather than a finished or optimised betting system.
+
